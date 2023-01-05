@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block body %}
+{% load static %}
+
+<div style="margin: 20px;">
+<span><button  class=imagebutton>Upload File</button></span>
+<span>
+    Uploaded File: {{filename}}
+</span>
+<hr>
+<h3>Controlls</h3>
+<label for="separator">Separator</label>
+<input type="text" name="separator" id="separator" value=",">
+<br>
+<label for="includenumbers">Include Numbers 0-9</label>
+<input type="checkbox" name="includenumbers" id="includenumbers">
+
+<label for="includesmalls">Include small leters a-z</label>
+<input type="checkbox" name="includesmalls" id="includesmalls">
+
+<label for="includefirstcap">Include first capital leter A-Z</label>
+<input type="checkbox" name="includefirstcap" id="includefirstcap">
+
+<label for="includecaps">Include random capital leters A-Z</label>
+<input type="checkbox" name="includecaps" id="includecaps">
+
+<br>
+<label for="passlength">Pasword length</label>
+<select name="passlength" id="passlength">
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+</select>
+<br>
+<div>
+<button  class=start>Start</button>
+</div>
+
+
+<hr>
+<h3>
+    Content
+</h3>
+<table>
+<th>Email</th>
+<th>Hash</th>
+<th>Pawword</th>
+{%for key, value in content.items %}
+<tr>
+<td>   {{key}} </td>
+<td>    {{value}}</td>
+</tr>
+
+{%endfor%}
+</table>
+
+</div>
+
+
+
+
+{% endblock %}

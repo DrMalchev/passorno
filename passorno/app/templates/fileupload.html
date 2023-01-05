@@ -1,0 +1,30 @@
+
+{% block body %}
+    <h2>File Upload</h2>
+
+    <form action="/fileupload" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for entry in form %}
+           <div>
+                {{ entry.label_tag }}
+           </div>
+           <div>
+               {{entry}}
+           </div>
+        {% endfor %}
+        <br>
+        
+        <button style="margin-top: 10px;">
+            Save!
+        </button>
+        
+    </form>
+    <hr>
+
+    <form style="margin-top: 10px;" action="/">
+        <input type="submit" value="Cancel" />
+    </form>
+
+ 
+
+{% endblock %}
